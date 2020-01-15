@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946292488-1">
+        <createTable tableName="tb_order_status">
+            <column name="order_id" remarks="订单id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="status" remarks="状态：1、未付款 2、已付款,未发货 3、已发货,未确认 4、交易成功 5、交易关闭 6、已评价" type="INT"/>
+            <column name="create_time" remarks="订单创建时间" type="datetime"/>
+            <column name="payment_time" remarks="付款时间" type="datetime"/>
+            <column name="consign_time" remarks="发货时间" type="datetime"/>
+            <column name="end_time" remarks="交易完成时间" type="datetime"/>
+            <column name="close_time" remarks="交易关闭时间" type="datetime"/>
+            <column name="comment_time" remarks="评价时间" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator" id="1577946292488-2">
+        <createIndex indexName="status" tableName="tb_order_status">
+            <column name="status"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946431371-1">
+        <createTable tableName="tb_spu_detail">
+            <column name="spu_id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="description" remarks="商品描述信息" type="TEXT"/>
+            <column defaultValue="" name="generic_spec" remarks="通用规格参数数据" type="VARCHAR(3000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="special_spec" remarks="特有规格参数及可选值信息，json格式" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="packing_list" remarks="包装清单" type="VARCHAR(1000)"/>
+            <column defaultValue="" name="after_service" remarks="售后服务" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

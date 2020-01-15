@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <include file="table/tb_brand.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_category.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_category_brand.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_order.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_order_detail.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_order_status.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_sku.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_spec_param.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_spec_group.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_spu.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_spu_detail.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_stock.xml" relativeToChangelogFile="true"/>
+    <include file="table/tb_user.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>

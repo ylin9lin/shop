@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946459209-1">
+        <createTable tableName="tb_stock">
+            <column name="sku_id" remarks="库存对应的商品sku id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="seckill_stock" remarks="可秒杀库存" type="INT"/>
+            <column defaultValueNumeric="0" name="seckill_total" remarks="秒杀总数量" type="INT"/>
+            <column name="stock" remarks="库存数量" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

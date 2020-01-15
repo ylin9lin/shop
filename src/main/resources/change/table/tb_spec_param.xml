@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946376984-1">
+        <createTable tableName="tb_spec_param">
+            <column autoIncrement="true" name="id" remarks="主键" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="cid" remarks="商品分类id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="参数名" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numeric1" remarks="是否是数字类型参数，true或false" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="unit" remarks="数字类型参数的单位，非数字类型可以为空" type="VARCHAR(255)"/>
+            <column name="generic" remarks="是否是sku通用属性，true或false" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="searching" remarks="是否用于搜索过滤，true或false" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="segments" remarks="数值类型参数，如果需要搜索，则添加分段间隔值，如CPU频率间隔：0.5-1.0" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator" id="1577946376984-2">
+        <createIndex indexName="key_category" tableName="tb_spec_param">
+            <column name="cid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator" id="1577946376984-3">
+        <createIndex indexName="key_group" tableName="tb_spec_param">
+            <column name="group_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

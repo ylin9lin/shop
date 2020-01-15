@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946320569-1">
+        <createTable tableName="tb_sku">
+            <column autoIncrement="true" name="id" remarks="sku id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="spu_id" remarks="spu id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" remarks="商品标题" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="images" remarks="商品的图片，多个图片以‘,’分割" type="VARCHAR(1000)"/>
+            <column defaultValueNumeric="0" name="price" remarks="销售价格，单位为分" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="indexes" remarks="特有规格属性在spu属性模板中的对应下标组合" type="VARCHAR(100)"/>
+            <column defaultValue="" name="own_spec" remarks="sku的特有规格参数键值对，json格式，反序列化时请使用linkedHashMap，保证有序" type="VARCHAR(1000)"/>
+            <column defaultValueNumeric="1" name="enable" remarks="是否有效，0无效，1有效" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_time" remarks="添加时间" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_update_time" remarks="最后修改时间" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator" id="1577946320569-2">
+        <createIndex indexName="key_spu_id" tableName="tb_sku">
+            <column name="spu_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

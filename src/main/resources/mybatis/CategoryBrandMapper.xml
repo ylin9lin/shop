@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lin.shopping.item.mapper.CategoryBrandMapper">
+
+    <delete id="deletecategoryBrand">
+        DELETE c
+        FROM tb_category_brand as c
+        WHERE c.brand_id =#{id}
+    </delete>
+    <delete id="updatecategoryBrand">
+        UPDATE tb_category_brand as c ,tb_brand b SET c.brand_id =b.id
+                WHERE c.brand_id =#{id}
+    </delete>
+</mapper>

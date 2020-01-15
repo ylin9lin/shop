@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946159726-1">
+        <createTable tableName="tb_category">
+            <column autoIncrement="true" name="id" remarks="类目id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" remarks="类目名称" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" remarks="父类目id,顶级类目填0" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_parent" remarks="是否为父节点，0为否，1为是" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort" remarks="排序指数，越小越靠前" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator" id="1577946159726-2">
+        <createIndex indexName="key_parent_id" tableName="tb_category">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

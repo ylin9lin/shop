@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="lin" id="1577946238058-1">
+        <createTable tableName="tb_order_detail">
+            <column autoIncrement="true" name="id" remarks="订单详情id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" remarks="订单id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sku_id" remarks="sku商品id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="num" remarks="购买数量" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" remarks="商品标题" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="own_spec" remarks="商品动态属性键值集" type="VARCHAR(1000)"/>
+            <column name="price" remarks="价格,单位：分" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="" name="image" remarks="商品图片" type="VARCHAR(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator" id="1577946238058-2">
+        <createIndex indexName="key_order_id" tableName="tb_order_detail">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
